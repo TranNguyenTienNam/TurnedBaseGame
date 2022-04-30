@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35fbac83745af2408df6e53f39b1f81, type: 3}
+  m_Name: Damage
+  m_EditorClassIdentifier: 
+  id: 
+  image: {fileID: 21300000, guid: f74fb8b4623ea4afcbf6c8e6bb4020b3, type: 3}
+  cost: 3
+  category: 
+  description: Deal damage
+  initiatives:
+  - targetTypes: 02
+    ability: {fileID: 11400000, guid: 29961455d68c2414199f7b8374ff8bde, type: 2}
+    amount: -10
+  owners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  targetFamilies: []
+  effectiveTurns: 1

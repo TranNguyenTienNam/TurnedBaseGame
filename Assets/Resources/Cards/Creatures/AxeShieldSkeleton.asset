@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0520d75319b5b4a85fba0e79c841c1, type: 3}
+  m_Name: AxeShieldSkeleton
+  m_EditorClassIdentifier: 
+  id: 
+  image: {fileID: -5895240819618427197, guid: af16cb225967af543b9c764da4690c2e, type: 3}
+  cost: 3
+  category: 
+  description: 
+  initiatives: []
+  health: 50
+  strength: 5
+  acceptableTargets: 
+  deathAbilities: []
+  animator: {fileID: 22100000, guid: 7fcc680e693cffd44937d3b688287767, type: 2}

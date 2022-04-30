@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AxeShieldSkeleton
+  m_Controller: {fileID: 9100000, guid: e50dcd11ac85b054fb53f223a944d997, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ee35f11b6ef542644a954816d071aabf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2f30b037aebbcdf45b6d7eb43ec8202a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5b0db5523b8d243489d6b8a2d686f6ef, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 94e558a45a33a7a4d919943862437875, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4930864a469a8be4e9abccc3595a3cbc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d6da8ee774fc7a948ab4d6f4586c0dc3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 71bd0e1c79ef85d47bb5e5ea9fdd4ee4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ae2f060107e4a5b41afb46489b362f3b, type: 2}
