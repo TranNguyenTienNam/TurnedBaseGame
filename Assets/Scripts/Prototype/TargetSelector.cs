@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TargetSelector
 {
-    public List<Creature> GetTargetList(Creature pivotTarget, Target target)
+    public static List<Creature> GetTargetList(Creature pivotTarget, Target target)
     {
         var results = new List<Creature>();
         switch (target)
@@ -22,20 +22,20 @@ public class TargetSelector
             case Target.RANDOM:
                 break;
             case Target.ALL:
-                results = GetAllCreatureInBothField();
+                results = GetAllCreatureInBothFields();
                 break;
         }
         return results;
     }
 
-    private List<Creature> GetItself(Creature pivotTarget)
+    private static List<Creature> GetItself(Creature pivotTarget)
     {
         var results = new List<Creature>();
         results.Add(pivotTarget);
         return results;
     }
 
-    private List<Creature> GetAllies(Creature pivotTarget)
+    private static List<Creature> GetAllies(Creature pivotTarget)
     {
         var results = new List<Creature>();
         GameObject contentField;
@@ -46,7 +46,7 @@ public class TargetSelector
         return results;
     }
 
-    private List<Creature> GetAllCreatureInBothField()
+    private static List<Creature> GetAllCreatureInBothFields()
     {
         var results = new List<Creature>();
         GameObject playerField = GameObject.Find("PlayerField");

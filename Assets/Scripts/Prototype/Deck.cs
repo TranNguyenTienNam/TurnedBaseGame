@@ -33,14 +33,10 @@ public class Deck : NetworkBehaviour
     [Command]
     public void CmdPlayCard(ScriptableCard cardInfo)
     {
-        Debug.Log(cardInfo.name);
-
         var creatureObj = Instantiate(Player.gameManager.playerField.creaturePrefab.gameObject);
         creatureObj.GetComponent<Creature>().OnInitialize(cardInfo as CreatureCard);
 
         NetworkServer.Spawn(creatureObj);
-
-        Debug.Log("Cmd");
 
         if (isServer) RpcPlayCard(creatureObj);
     }
@@ -50,7 +46,6 @@ public class Deck : NetworkBehaviour
     {
         if (Player.gameManager.isSpawning)
         {
-            Debug.Log("Rpc");
             creatureObj.transform.SetParent(Player.gameManager.playerField.fieldContent, false);
             Player.gameManager.playerField.spawnedCreatures.Add(creatureObj.GetComponent<Creature>());
             Player.gameManager.isSpawning = false;

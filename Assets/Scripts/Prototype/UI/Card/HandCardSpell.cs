@@ -6,7 +6,8 @@ public class HandCardSpell : HandCard
 {
     public Target casterType;
 
-    private Creature currentTarget;
+    private Creature mainTarget;
+    private List<Creature> targets = new List<Creature>();
 
     public override void OnBeginDrag(PointerEventData eventData)
     {
@@ -16,23 +17,45 @@ public class HandCardSpell : HandCard
     public override void OnDrag(PointerEventData eventData)
     {
         RaycastHit2D[] hitInfo = Physics2D.CircleCastAll(transform.position, 0.1f, Vector2.zero, 1f, LayerMask.GetMask("Creature"));
+
         if (hitInfo.Length > 0)
         {
             var newTarget = hitInfo[0].collider.gameObject.GetComponent<Creature>();
-            if (newTarget != currentTarget)
+            // Player has just selected a creature or changed the main target
+            if (newTarget != mainTarget)
             {
-                if (currentTarget) currentTarget.targetingSignal.SetActive(false);
-                newTarget.targetingSignal.SetActive(true);
-                currentTarget = newTarget;
+                mainTarget = newTarget;
+
+                foreach (var target in targets)
+                {
+                    target.targetingSignal.SetActive(false);
+                }
+                targets.Clear();
+
+                foreach (var ability in cardInfo.initiatives)
+                {
+                    var _targets = TargetSelector.GetTargetList(mainTarget, ability.targetType);
+                    targets.AddRange(_targets);
+                }
             }
         }
         else
         {
-            if (currentTarget)
+            // Player no longer selects the main target
+            if (mainTarget)
             {
-                currentTarget.targetingSignal.SetActive(false);
-                currentTarget = null;
+                mainTarget = null;
+                foreach (var target in targets)
+                {
+                    target.targetingSignal.SetActive(false);
+                }
+                targets.Clear();
             }
+        }
+
+        foreach (var target in targets)
+        {
+            target.targetingSignal.SetActive(true);
         }
     }
 

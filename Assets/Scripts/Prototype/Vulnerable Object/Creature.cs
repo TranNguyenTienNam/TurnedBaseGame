@@ -3,7 +3,8 @@ public class Creature : MonoBehaviour
 {
     public bool isTargeting = false;
     public GameObject creatureUI;
-    public GameObject targetingSignal;  // Particle system for VFX
+    public GameObject targetingSignal;
+    // TODO: Particle system for Damaged VFX
 
     [Header("Stats")]
     public int currentHealth;

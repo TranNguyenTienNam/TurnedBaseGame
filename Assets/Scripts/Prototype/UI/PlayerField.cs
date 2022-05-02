@@ -18,7 +18,7 @@ public class PlayerField : MonoBehaviour, IDropHandler
         card.OnDrop(eventData, this);
         card.IsRemoved();
 
-        Player.localPlayer.CmdChangeMana(-card.cardInfo.cost);
+        //Player.localPlayer.CmdChangeMana(-card.cardInfo.cost);
     }
 
     public void RearrangeLastCreature()

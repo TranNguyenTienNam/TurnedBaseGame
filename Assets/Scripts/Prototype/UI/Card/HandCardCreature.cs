@@ -74,13 +74,22 @@ public class HandCardCreature : HandCard
 
     public override void OnDrop(PointerEventData eventData, PlayerField playerField)
     {
-        Player.gameManager.isSpawning = true;
+        //Player.gameManager.isSpawning = true;
 
-        Player.localPlayer.deck.CmdPlayCard(cardInfo);
+        //Player.localPlayer.deck.CmdPlayCard(cardInfo);
+        OnPlay(playerField); // TODO: Temp
         
         // TODO: BUG: Position y not change
         //playerField.RearrangeCreaturePosition(creature);
 
         playerField.previewDrag.SetActive(false);
+    }
+
+    public void OnPlay(PlayerField playerField)
+    {
+        var creatureObj = Instantiate(playerField.creaturePrefab.gameObject);
+        creatureObj.GetComponent<Creature>().OnInitialize(cardInfo as CreatureCard);
+        creatureObj.transform.SetParent(playerField.fieldContent, false);
+        playerField.spawnedCreatures.Add(creatureObj.GetComponent<Creature>());
     }
 }
